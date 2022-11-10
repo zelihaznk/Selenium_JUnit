@@ -1,0 +1,17 @@
+1. File : Selenium Webdriver uzerinden calistigi icin bizim bilgisayarimizdaki dosyalar ile ilgili test
+yapamaz. Ancak bazi testlerimizi calistirirken bilgisayarimizda bir dosyanin var olup olmadigini control
+etmemiz, bir dosyayi okumamiz veya indirdigimiz bir dosyanin indirilip indirilmedigini control etmemiz
+gerekir.
+Bu durumda Java imdadimiza yetisir.
+Ancak Java’nin bilgisayarimizdaki dosyalara erismek icin dosya yoluna (path) ihtiyaci vardir.
+Her blgisayarin ismi ve user ismi birbirinden farkli olacagindan, eger sabit bir dosya yolu
+yazarsak, bir bilgisayarda calisan test otekinde calismaz. Bunun icin dosya yolunun dinamik olmasi tercih
+edilir.
+Dosya yolunu dinamik yapmak icin, herkesin bilgisayarinda farkli olan kisim ve herkesin
+bilgisayarinda ayni olan kisimlari concate etmemiz gerekir
+herkeste farkli olan = System.getProperty(“user.home”) C:\\Users\\Lenovo
+herkeste ayni olan = \\Desktop\\dosyaAdi.dosyaUzantisi
+2- dosyanin bilgisayarimizda oldugunu test etmek icin
+Files.exists(Paths.get(dosyaYolu)) → true veya false doner
+3- dosya upload : bilgisayarimizdaki klasorleri mouse ile acamayacagimiz icin, dosya sec butonunu locate
+edip button.sendKeys(dosyaYolu) diyerek dosyayi secip, sonra file upload butonuna basiyoruz.
